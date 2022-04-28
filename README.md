@@ -5,4 +5,3 @@
 - When user creates note you should save it in phone and show every time user enters app
 - Save note in shared preference
 - Use kotlin
-- Use view binding
