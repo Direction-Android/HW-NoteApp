@@ -6,3 +6,5 @@
 - Save note in shared preference
 - Use kotlin
 - Use view binding
+
+
