@@ -1,5 +1,7 @@
 package uz.direction.noteapp
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.view.View
@@ -19,16 +21,20 @@ class NoteFragment : Fragment(R.layout.note_fragment) {
         val text = view.findViewById<EditText>(R.id.editText)
         val title = view.findViewById<EditText>(R.id.editTitle)
 
+        val editable =
+            requireContext().getSharedPreferences("shared_pref", Context.MODE_PRIVATE).edit()
+
         if ((args.title).toString() != "Empty") {
             text.text = Editable.Factory.getInstance().newEditable(args.text)
             title.text = Editable.Factory.getInstance().newEditable(args.title)
         }
         saveBtn.setOnClickListener {
             if (title.text.isNotBlank()) {
-                val action2 = NoteFragmentDirections.actionNoteFragmentToMainFragment()
-                action2.text = text.text.toString()
-                action2.title = title.text.toString()
-                findNavController().navigate(action2)
+                editable.putString("text", text.text.toString())
+                editable.putString("title", title.text.toString())
+                editable.apply()
+                Toast.makeText(context, "Saved!", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(NoteFragmentDirections.actionNoteFragmentToMainFragment())
             } else {
                 Toast.makeText(context, "Header is blank!", Toast.LENGTH_SHORT).show()
             }

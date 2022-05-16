@@ -1,5 +1,6 @@
 package uz.direction.noteapp
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -12,14 +13,18 @@ import androidx.navigation.fragment.navArgs
 
 class MainFragment : Fragment(R.layout.main_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val args by navArgs<MainFragmentArgs>()
         super.onViewCreated(view, savedInstanceState)
         val title = view.findViewById<TextView>(R.id.title)
         val text = view.findViewById<TextView>(R.id.text)
         val addBtn = view.findViewById<Button>(R.id.button)
 
-        title.text = args.title
-        text.text = args.text
+
+        val saved=requireContext().getSharedPreferences("shared_pref", Context.MODE_PRIVATE)
+        val savedTitle=saved.getString("title","")
+        val savedText=saved.getString("text","")
+
+        title.text = savedTitle
+        text.text =savedText
 
 
 
