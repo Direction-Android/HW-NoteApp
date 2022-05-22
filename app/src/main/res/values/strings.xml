@@ -7,4 +7,7 @@
     <string name="header_key">header_key</string>
     <string name="text_key">text.key</string>
     <string name="note_text">noteText</string>
+    <string name="header">headerValue</string>
+    <string name="text">textValue</string>
+    <string name="sh_pref_key">pref</string>
 </resources>
