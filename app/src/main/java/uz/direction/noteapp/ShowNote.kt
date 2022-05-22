@@ -12,8 +12,5 @@ class ShowNote : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityShowNoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//
-//        binding.headerTitleNote.text = intent.getStringExtra(MainActivity.MAIN_HEADER_MESSAGE)
-//        binding.text.text = intent.getStringExtra(MainActivity.MAIN_TEXT_MESSAGE)
     }
 }
