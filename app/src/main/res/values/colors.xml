@@ -10,4 +10,7 @@
     <color name="grey">#808080</color>
     <color name="dark_yellow">#FFC300</color>
     <color name="dark_blue">#003566</color>
+    <color name="persian_green">#2a9d8f</color>
+    <color name="maize_crayola">#e9c46a</color>
+    <color name="charcoal">#264653</color>
 </resources>

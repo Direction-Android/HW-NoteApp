@@ -47,6 +47,11 @@ class NoteFragment : Fragment() {
             val text = view.findViewById<TextView>(R.id.note_text).text.toString()
             val header = view.findViewById<TextView>(R.id.note_header).text.toString()
             passValue(text, header) }
+
+        binding?.noteHeader?.setOnClickListener(){
+            val text = view.findViewById<TextView>(R.id.note_text).text.toString()
+            val header = view.findViewById<TextView>(R.id.note_header).text.toString()
+            passValue(text, header) }
     }
 
     private fun passValue(text : String, header : String){
