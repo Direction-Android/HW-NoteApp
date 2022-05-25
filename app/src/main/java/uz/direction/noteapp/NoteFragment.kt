@@ -31,17 +31,15 @@ class NoteFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentNoteBinding.inflate(layoutInflater)
-
-        val shPref = activity?.getSharedPreferences(getString(R.string.sh_pref_key),
-            Context.MODE_PRIVATE) ?: return binding!!.root
-        binding?.noteHeader?.text = shPref.getString(getString(R.string.header), "Empty Note")
-        binding?.noteText?.text = shPref.getString(getString(R.string.text), "Empty Text")
-
         return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val shPref = activity?.getSharedPreferences(getString(R.string.sh_pref_key),
+            Context.MODE_PRIVATE)
+        binding?.noteHeader?.text = shPref!!.getString(getString(R.string.header), "Empty Note")
+        binding?.noteText?.text = shPref.getString(getString(R.string.text), "Empty Text")
 
         binding?.noteText?.setOnClickListener(){
             val text = view.findViewById<TextView>(R.id.note_text).text.toString()
