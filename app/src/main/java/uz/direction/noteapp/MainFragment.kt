@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -19,14 +20,16 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         val addBtn = view.findViewById<Button>(R.id.button)
 
 
-        val saved=requireContext().getSharedPreferences("shared_pref", Context.MODE_PRIVATE)
-        val savedTitle=saved.getString("title","")
-        val savedText=saved.getString("text","")
-
+        val saved = requireContext().getSharedPreferences("shared_pref", Context.MODE_PRIVATE)
+        val savedTitle = saved.getString("title", "")
+        val savedText = saved.getString("text", "")
         title.text = savedTitle
-        text.text =savedText
+        text.text = savedText
 
-
+        title.setOnClickListener {
+            val animation = AnimationUtils.loadAnimation(context, R.anim.move_animation)
+            title.startAnimation(animation)
+        }
 
         addBtn.setOnClickListener {
             val action = MainFragmentDirections.actionMainFragmentToNoteFragment(
