@@ -1,14 +1,9 @@
 package uz.direction.noteapp
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.direction.noteapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-    }
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
+    private val viewBinding: ActivityMainBinding by viewBinding(ActivityMainBinding::bind)
 }

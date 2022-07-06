@@ -6,4 +6,7 @@
     <string name="shared_preference_key">uz.direction.noteapp</string>
     <string name="header_key">header_key</string>
     <string name="text_key">text.key</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_header_text">Note header</string>
+    <string name="default_note_text">Note text</string>
 </resources>
