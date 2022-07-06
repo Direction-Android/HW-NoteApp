@@ -3,8 +3,6 @@ package uz.direction.noteapp.models
 import uz.direction.noteapp.notes
 import uz.direction.noteapp.recyclerview.Note
 
-class NoteModel: NoteRepository {
-    override fun getNote(position: Int): Note {
-        return notes[position]
-    }
+interface NoteRepository {
+    fun getNote(position: Int): Note
 }
