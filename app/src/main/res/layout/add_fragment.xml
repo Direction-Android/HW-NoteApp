@@ -6,7 +6,7 @@
 
 
     <EditText
-        android:id="@+id/editTitle"
+        android:id="@+id/addTitle_et"
         android:layout_width="380dp"
         android:layout_height="48dp"
         android:layout_marginTop="88dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/addContent_et"
         android:layout_width="379dp"
         android:layout_height="556dp"
         android:layout_marginTop="16dp"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/addTitle_et" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/save_button"
@@ -43,7 +43,7 @@
         android:background="@drawable/rounded_button"
         android:backgroundTint="@android:color/white"
         android:drawableStart="@drawable/ic_tick"
-        app:layout_constraintBottom_toTopOf="@+id/editTitle"
+        app:layout_constraintBottom_toTopOf="@+id/addTitle_et"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
