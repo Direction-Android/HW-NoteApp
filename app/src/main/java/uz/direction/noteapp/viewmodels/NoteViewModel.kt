@@ -9,14 +9,14 @@ import uz.direction.noteapp.models.NoteRepository
 import uz.direction.noteapp.models.db.AppDatabase
 import uz.direction.noteapp.recyclerview.Note
 
-class NoteViewModel(database: AppDatabase): ViewModel() {
+class NoteViewModel(database: AppDatabase) : ViewModel() {
     private val notesRepository: NoteRepository = NoteModel(database)
 
-    fun createNote(note: Note) = viewModelScope.launch(Dispatchers.IO){
+    fun createNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         notesRepository.insertNewNote(note)
     }
 
-    fun updateNote(note: Note) = viewModelScope.launch(Dispatchers.IO){
+    fun updateNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         notesRepository.updateNote(note)
     }
 }

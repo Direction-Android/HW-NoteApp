@@ -11,8 +11,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import by.kirich1409.viewbindingdelegate.viewBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import uz.direction.noteapp.R
 import uz.direction.noteapp.databinding.FragmentMainScreenBinding

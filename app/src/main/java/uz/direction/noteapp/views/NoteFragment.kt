@@ -19,10 +19,11 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
     private val noteViewModel: NoteViewModel by viewModelsFactory {
         NoteViewModel(
             Room.databaseBuilder(
-            requireContext(),
-            AppDatabase::class.java,
-            "notes_db"
-        ).build())
+                requireContext(),
+                AppDatabase::class.java,
+                "notes_db"
+            ).build()
+        )
     }
     private val viewBinding: FragmentNoteBinding by viewBinding(FragmentNoteBinding::bind)
     private val args: NoteFragmentArgs by navArgs()
@@ -38,7 +39,7 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
         viewBinding.saveNoteButton.visibility = View.INVISIBLE
         viewBinding.saveNoteButton.isEnabled = false
 
-        viewBinding.notePageHeader.addTextChangedListener(object : TextWatcher{
+        viewBinding.notePageHeader.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 
@@ -51,7 +52,7 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
             }
         })
 
-        viewBinding.notePageText.addTextChangedListener(object : TextWatcher{
+        viewBinding.notePageText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 
@@ -64,7 +65,7 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
             }
         })
 
-        viewBinding.saveNoteButton.setOnClickListener{
+        viewBinding.saveNoteButton.setOnClickListener {
             if (args.note?.id == null) {
                 val note = Note(
                     header = viewBinding.notePageHeader.text.toString(),
