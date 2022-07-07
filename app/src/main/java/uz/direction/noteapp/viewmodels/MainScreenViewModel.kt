@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
@@ -24,6 +25,7 @@ class MainScreenViewModel(database: AppDatabase): ViewModel() {
         get() = _notes
 
     fun getNotes() = viewModelScope.launch(Dispatchers.IO){
+        delay(100)
         updateNoteList().await()
         _dataFlow.value = notes
     }

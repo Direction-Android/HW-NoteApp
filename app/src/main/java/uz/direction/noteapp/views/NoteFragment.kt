@@ -3,18 +3,12 @@ package uz.direction.noteapp.views
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.room.Room
 import by.kirich1409.viewbindingdelegate.viewBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import uz.direction.noteapp.R
 import uz.direction.noteapp.databinding.FragmentNoteBinding
 import uz.direction.noteapp.models.db.AppDatabase
@@ -77,9 +71,7 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
                     text = viewBinding.notePageText.text.toString(),
                     id = null
                 )
-                lifecycleScope.launch{
-                    noteViewModel.createNote(note).await()
-                }
+                noteViewModel.createNote(note)
                 findNavController().popBackStack()
             } else {
                 val note = Note(
@@ -87,9 +79,7 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
                     text = viewBinding.notePageText.text.toString(),
                     id = args.note!!.id
                 )
-                lifecycleScope.launch{
-                    noteViewModel.updateNote(note).await()
-                }
+                noteViewModel.updateNote(note)
                 findNavController().popBackStack()
             }
         }
