@@ -3,4 +3,7 @@
     <string name="empty">Empty</string>
     <string name="title">Title</string>
     <string name="type_there">Type there</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
 </resources>

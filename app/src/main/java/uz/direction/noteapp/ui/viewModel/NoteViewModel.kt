@@ -1,4 +1,4 @@
-package uz.direction.noteapp.viewModel
+package uz.direction.noteapp.ui.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,9 +6,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import uz.direction.noteapp.data.NoteDatabase
-import uz.direction.noteapp.model.Note
-import uz.direction.noteapp.repository.NoteRepositoryImpl
+import uz.direction.noteapp.data.local.NoteDatabase
+import uz.direction.noteapp.data.model.Note
+import uz.direction.noteapp.data.repository.NoteRepositoryImpl
 
 class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -44,12 +44,4 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
             repository.deleteAllNotes()
         }
     }
-
-//    sealed class Resource<T> {
-//        class Loading<T> : Resource<T>()
-//        class Success<T>(val data: T) : Resource<T>()
-//        class Error<T>(val error: Throwable) : Resource<T>()
-//
-//    }
-
 }

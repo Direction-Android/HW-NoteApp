@@ -1,8 +1,8 @@
-package uz.direction.noteapp.data
+package uz.direction.noteapp.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import uz.direction.noteapp.model.Note
+import uz.direction.noteapp.data.model.Note
 
 @Dao
 interface NoteDao {

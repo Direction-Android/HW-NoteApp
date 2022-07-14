@@ -9,22 +9,24 @@
         android:id="@+id/editTitle_et"
         android:layout_width="380dp"
         android:layout_height="48dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="4dp"
         android:background="@android:color/transparent"
         android:ems="10"
         android:hint="@string/title"
         android:inputType="text"
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintHorizontal_bias="0.354"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/editContent_et"
         android:layout_width="379dp"
-        android:layout_height="556dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/type_there"
@@ -32,20 +34,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addTitle_et" />
+        app:layout_constraintTop_toBottomOf="@+id/editTitle_et"
+        android:autofillHints="
+" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/save_button"
-        android:layout_width="55dp"
-        android:layout_height="29dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="@android:color/white"
-        android:drawableStart="@drawable/ic_tick"
-        app:layout_constraintBottom_toTopOf="@+id/addTitle_et"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

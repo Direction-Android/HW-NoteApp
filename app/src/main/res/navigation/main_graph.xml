@@ -6,18 +6,18 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="uz.direction.noteapp.fragments.list.NoteListFragment"
+        android:name="uz.direction.noteapp.ui.fragments.list.NoteListFragment"
         android:label="MainFragment" >
-        <action
-            android:id="@+id/action_mainFragment_to_updateFragment"
-            app:destination="@id/updateFragment" />
         <action
             android:id="@+id/action_mainFragment_to_noteFragment"
             app:destination="@id/noteFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
     <fragment
         android:id="@+id/noteFragment"
-        android:name="uz.direction.noteapp.fragments.add.AddFragment"
+        android:name="uz.direction.noteapp.ui.fragments.add.AddFragment"
         android:label="Edit" >
         <action
             android:id="@+id/action_noteFragment_to_mainFragment"
@@ -25,11 +25,11 @@
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
-        android:name="uz.direction.noteapp.fragments.update.UpdateFragment"
+        android:name="uz.direction.noteapp.ui.fragments.update.UpdateFragment"
         android:label="Update" >
         <argument
             android:name="currentNote"
-            app:argType="uz.direction.noteapp.model.Note" />
+            app:argType="uz.direction.noteapp.data.model.Note" />
         <action
             android:id="@+id/action_updateFragment_to_mainFragment"
             app:destination="@id/mainFragment" />

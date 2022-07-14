@@ -1,9 +1,8 @@
-package uz.direction.noteapp
+package uz.direction.noteapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import uz.direction.noteapp.databinding.ActivityMainBinding
+import uz.direction.noteapp.R
 
 class MainActivity : AppCompatActivity() {
 

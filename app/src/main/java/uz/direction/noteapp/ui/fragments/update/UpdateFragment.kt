@@ -1,24 +1,18 @@
-package uz.direction.noteapp.fragments.update
+package uz.direction.noteapp.ui.fragments.update
 
 import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.view.*
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import uz.direction.noteapp.R
-import uz.direction.noteapp.data.NoteDatabase
-import uz.direction.noteapp.databinding.MainFragmentBinding
 import uz.direction.noteapp.databinding.UpdateFragmentBinding
-import uz.direction.noteapp.fragments.list.NoteAdapter
-import uz.direction.noteapp.model.Note
-import uz.direction.noteapp.viewModel.NoteViewModel
+import uz.direction.noteapp.data.model.Note
+import uz.direction.noteapp.ui.viewModel.NoteViewModel
 
 class UpdateFragment : Fragment(R.layout.update_fragment) {
 
@@ -42,26 +36,32 @@ class UpdateFragment : Fragment(R.layout.update_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val saveBtn = binding.saveButton
         val content = binding.editContentEt
         val title = binding.editTitleEt
 
         title.text = Editable.Factory.getInstance().newEditable(args.currentNote.title)
         content.text = Editable.Factory.getInstance().newEditable(args.currentNote.text)
         noteViewModel = ViewModelProvider(this)[NoteViewModel::class.java]
-
-        saveBtn.setOnClickListener {
-            updateItem()
-        }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.delete_menu, menu)
+        inflater.inflate(R.menu.action_menu, menu)
+        menu.findItem(R.id.menu_save).isVisible = isHidden
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-            deleteNote()
+        when (item.itemId) {
+            R.id.menu_delete -> {
+                deleteNote()
+            }
+            R.id.menu_edit -> {
+                updateItem()
+            }
+
+
+        }
         return super.onOptionsItemSelected(item)
     }
 

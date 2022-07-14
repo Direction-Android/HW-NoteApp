@@ -1,4 +1,4 @@
-package uz.direction.noteapp.fragments.list
+package uz.direction.noteapp.ui.fragments.list
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,15 +8,12 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import uz.direction.noteapp.R
-import uz.direction.noteapp.model.Note
+import uz.direction.noteapp.data.model.Note
 
-public class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteVH>() {
+ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteVH>() {
     private var notesList: List<Note> = emptyList()
     private var onClick: ((Note, Int) -> Unit)? = null
 
-    fun setOnClickListener(clickEvent: (Note, Int) -> Unit) {
-        onClick = clickEvent
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteVH {
         val view =
@@ -28,7 +25,7 @@ public class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteVH>() {
     override fun getItemCount(): Int =notesList.size
 
     override fun onBindViewHolder(holder: NoteVH, position: Int) {
-        holder.onBind(notesList[position], position, onClick ?: { note, i -> })
+        holder.onBind(notesList[position], position, onClick ?: { _, _ -> })
 
     }
 

@@ -1,10 +1,10 @@
-package uz.direction.noteapp.data
+package uz.direction.noteapp.data.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import uz.direction.noteapp.model.Note
+import uz.direction.noteapp.data.model.Note
 
 @Database(entities = [Note::class], version = 1)
 

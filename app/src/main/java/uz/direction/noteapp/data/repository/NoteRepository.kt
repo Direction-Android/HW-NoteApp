@@ -1,8 +1,6 @@
-package uz.direction.noteapp.repository
+package uz.direction.noteapp.data.repository
 
-import androidx.lifecycle.LiveData
-import uz.direction.noteapp.data.NoteDao
-import uz.direction.noteapp.model.Note
+import uz.direction.noteapp.data.model.Note
 
 interface NoteRepository {
 

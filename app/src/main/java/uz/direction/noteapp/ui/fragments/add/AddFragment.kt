@@ -1,24 +1,23 @@
-package uz.direction.noteapp.fragments.add
+package uz.direction.noteapp.ui.fragments.add
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.EditText
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import uz.direction.noteapp.R
-import uz.direction.noteapp.model.Note
+import uz.direction.noteapp.data.model.Note
 import uz.direction.noteapp.databinding.AddFragmentBinding
-import uz.direction.noteapp.viewModel.NoteViewModel
+import uz.direction.noteapp.ui.viewModel.NoteViewModel
 
 class AddFragment : Fragment(R.layout.add_fragment) {
 
     private var _binding: AddFragmentBinding? = null
     private val binding: AddFragmentBinding get() = _binding!!
+
     private lateinit var noteViewModel: NoteViewModel
+
 
 
     override fun onCreateView(
@@ -27,30 +26,34 @@ class AddFragment : Fragment(R.layout.add_fragment) {
         savedInstanceState: Bundle?,
     ): View {
         _binding = AddFragmentBinding.inflate(layoutInflater)
+        setHasOptionsMenu(true)
+        noteViewModel = ViewModelProvider(this)[NoteViewModel::class.java]
+
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-        noteViewModel = ViewModelProvider(this)[NoteViewModel::class.java]
-        val saveBtn = binding.saveButton
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+
+        inflater.inflate(R.menu.action_menu, menu)
+        menu.findItem(R.id.menu_edit).isVisible = isHidden
+        menu.findItem(R.id.menu_delete).isVisible = isHidden
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        addNoteToDB()
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun addNoteToDB() {
+
         val content = binding.addContentEt
         val title = binding.addTitleEt
 
-        saveBtn.setOnClickListener {
-            addNoteToDB(title, content, noteViewModel)
-        }
-    }
+        if (title.text.isNotBlank()) {
 
-    private fun addNoteToDB(title: EditText, content: EditText, noteViewModel: NoteViewModel) {
-
-        val title = title.text.toString()
-        val content = content.text.toString()
-
-        if (title.isNotBlank()) {
-
-            val note = Note(title, content)
+            val note = Note(title.text.toString(), content.text.toString())
             noteViewModel.insertNote(note)
             findNavController().navigate(R.id.action_noteFragment_to_mainFragment)
             Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_SHORT)
