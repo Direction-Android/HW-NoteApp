@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="uz.direction.noteapp.ui.fragments.list.NoteListFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="uz.direction.noteapp.ui.fragments.add.AddFragment"
+        android:label="Edit" >
+        <action
+            android:id="@+id/action_noteFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="uz.direction.noteapp.ui.fragments.update.UpdateFragment"
+        android:label="Update" >
+        <argument
+            android:name="currentNote"
+            app:argType="uz.direction.noteapp.data.model.Note" />
+        <action
+            android:id="@+id/action_updateFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+</navigation>
